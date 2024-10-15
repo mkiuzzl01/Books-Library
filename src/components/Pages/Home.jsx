@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import Banner from "../Sections/banner";
 
 const Home = () => {
-    return (
-        <div>
-            <h1>This is Home Page</h1>
-        </div>
-    );
+  return (
+    <div>
+      {/* this is banner section */}
+      <Banner></Banner>
+      {/* this section title */}
+    </div>
+  );
 };
 
 export default Home;
