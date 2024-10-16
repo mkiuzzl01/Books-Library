@@ -2,7 +2,7 @@ import React from "react";
 
 const Book_Card = ({ book }) => {
   const { title, authors, formats, id, bookshelves } = book;
-  console.log(bookshelves);
+  // console.log(bookshelves);
 
   return (
     <div className="flex border-2 p-4 w-full h-80 rounded-md">
