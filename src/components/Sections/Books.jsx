@@ -19,9 +19,9 @@ const Books = () => {
   return (
     <div>
       <div>
-        <div className="grid items-center gap-4 justify-items-center lg:grid-cols-4 md:grid-cols-3 grid-cols-1 m-5">
+        <div className="grid items-center gap-4 justify-items-center lg:grid-cols-3 md:grid-cols-2 grid-cols-1 m-5">
           {books.map((book, idx) => (
-            <Book_Card key={idx} title={book?.title} formats={book?.formats} author={book?.authors} image={book?.formats?.['image/jpeg']}></Book_Card>
+            <Book_Card key={idx} book={book}></Book_Card>
           ))}
         </div>
       </div>
