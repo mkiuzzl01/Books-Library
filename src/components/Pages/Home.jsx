@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../Sections/banner";
 import Section_title from "../Sections/section_title";
+import Books from "../Sections/Books";
 
 const Home = () => {
   return (
@@ -18,6 +19,8 @@ const Home = () => {
           </>
         }
       ></Section_title>
+      
+     <Books></Books>
     </div>
   );
 };
