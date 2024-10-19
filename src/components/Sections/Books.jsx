@@ -4,21 +4,16 @@ import React, { useState } from "react";
 import Book_Card from "../Shared/Book_Card";
 import Loading from "../Shared/Loading";
 import Empty from "../Shared/Empty";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const Books = () => {
   const [search, setSearch] = useState("");
   const [select, setSelect] = useState("");
   const [page, setPage] = useState(1);
 
-  const [forFilter, items] = useQueries({
+  const [items,forFilter] = useQueries({
     queries: [
-      {
-        queryKey: ["forFilter"],
-        queryFn: async () => {
-          const { data } = await axios.get("https://gutendex.com/books");
-          return data.results;
-        },
-      },
       {
         queryKey: ["books", search, select, page],
         queryFn: async () => {
@@ -27,7 +22,15 @@ const Books = () => {
           );
           return data.results;
         },
+        enabled: !!search || !!select || !!page,
       },
+      {
+        queryKey: ["forFilter"],
+        queryFn: async () => {
+          const { data } = await axios.get("https://gutendex.com/books");
+          return data.results;
+        },
+      }
     ],
   });
 
@@ -47,7 +50,7 @@ const Books = () => {
             onChange={(event) => setSearch(event.target.value)}
           />
         </div>
-          {/* //for select filter */}
+        {/* //for select filter */}
         <div>
           <select
             value={select}
@@ -82,14 +85,24 @@ const Books = () => {
       {/* for pagination */}
       <div>
         <div className="flex justify-center my-2">
-          <button onClick={()=>setPage( page - 1 )} disabled={page === 1} className="py-2 px-6 bg-green-400 mx-2 hover:bg-green-600">
-            Prev
+          <button
+            onClick={() => setPage(page - 1)}
+            disabled={page === 1}
+            className="flex items-center py-1 px-6 bg-green-400 mx-2 hover:bg-green-600"
+          >
+            <span>
+              <FaArrowLeftLong></FaArrowLeftLong>
+            </span>
+            <span className="ms-1">Prev</span>{" "}
           </button>
           <button
             onClick={() => setPage(page + 1)}
-            className="py-2 px-6 bg-green-400 mx-2 hover:bg-green-600"
+            className="flex items-center py-1 px-6 bg-green-400 mx-2 hover:bg-green-600"
           >
-            Next
+            <span> Next </span>{" "}
+            <span className="ms-1">
+              <FaArrowRightLong></FaArrowRightLong>
+            </span>
           </button>
         </div>
       </div>

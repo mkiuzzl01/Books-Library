@@ -1,6 +1,9 @@
 import React from "react";
+import { BiSolidLike } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
-const WishListedCard = ({ book }) => {
+const WishListedCard = ({ book,handleRemove }) => {
+
   const { title, authors, formats, id, bookshelves } = book;
 
   return (
@@ -23,7 +26,7 @@ const WishListedCard = ({ book }) => {
       {/* the content section of the card */}
       <div className="w-3/5 px-4 flex flex-col justify-around">
         <div className="text-sm">
-          <h1 className="text-lg font-semibold truncate">{title}</h1>
+          <Link to={`/Book_Details/${id}`}><h1 className="text-lg font-semibold">{title}</h1></Link>
           {authors.map((auth, idx) => (
             <div key={idx} className="">
               <span>
@@ -51,8 +54,10 @@ const WishListedCard = ({ book }) => {
             ))}
           </div>
         </div>
-        <div>
-            <button className=""></button>
+        <div className="flex justify-end">
+          <button title="Remove" onClick={() => handleRemove(id)} className="text-2xl px-2 hover:text-yellow-500">
+            <BiSolidLike></BiSolidLike>
+          </button>
         </div>
       </div>
     </div>

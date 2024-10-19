@@ -1,4 +1,5 @@
 import React from "react";
+import { IoIosHeartEmpty } from "react-icons/io";
 
 const AddToWishList = ({ book }) => {
   const handleAddToWishlist = (book) => {
@@ -12,10 +13,11 @@ const AddToWishList = ({ book }) => {
   return (
     <div>
       <button
+        title="Add to Wishlist"
         onClick={() => handleAddToWishlist(book)}
-        className="p-2 bg-yellow-300 hover:bg-yellow-400"
+        className="p-2 text-2xl hover:text-red-600"
       >
-        Add to wishlist
+      <IoIosHeartEmpty></IoIosHeartEmpty>
       </button>
     </div>
   );

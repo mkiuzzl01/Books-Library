@@ -1,10 +1,11 @@
 import React from "react";
 import AddToWishList from "../../lib/AddToWishList";
+import { Link } from "react-router-dom";
 
 const Book_Card = ({ book }) => {
   const { title, authors, formats, id, bookshelves } = book;
 
-  // console.log(authorLength);
+  // console.log(book);
   return (
     <div className="flex border-2 p-4 w-full h-80 rounded-md">
       {/* the image section of the card */}
