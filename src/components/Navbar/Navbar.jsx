@@ -5,7 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-
+  
   useEffect(() => {
     //handle the small menubar for largest device;
     const handleResize = () => {

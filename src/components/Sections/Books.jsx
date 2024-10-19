@@ -1,7 +1,7 @@
 import { useQueries } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useState } from "react";
-import Book_Card from "../Cards/Book_Card";
+import Book_Card from "../Shared/Book_Card";
 import Loading from "../Shared/Loading";
 import Empty from "../Shared/Empty";
 
@@ -31,7 +31,7 @@ const Books = () => {
     ],
   });
 
-  console.log(page);
+  // console.log(page);
   //for filtering
   const filtering = forFilter.data || [];
   const books = items.data || [];
@@ -39,6 +39,7 @@ const Books = () => {
   return (
     <div>
       <div className="flex justify-around py-4">
+        {/* for searching */}
         <div>
           <input
             type="text"
@@ -46,6 +47,7 @@ const Books = () => {
             onChange={(event) => setSearch(event.target.value)}
           />
         </div>
+          {/* //for select filter */}
         <div>
           <select
             value={select}
@@ -61,10 +63,12 @@ const Books = () => {
           </select>
         </div>
       </div>
+      {/* //for for status */}
       <div className="flex justify-center">
         {items.isLoading && <Loading></Loading>}
         {books.length === 0 && !items.isLoading && <Empty></Empty>}
       </div>
+      {/* //for each books */}
       <div>
         <div className="flex justify-center">
           {books.isLoading && <Loading></Loading>}
@@ -75,14 +79,15 @@ const Books = () => {
           ))}
         </div>
       </div>
+      {/* for pagination */}
       <div>
         <div className="flex justify-center my-2">
-          <button onClick={()=>setPage( page - 1 )} disabled={page === 1} className="p-y-1 px-4 bg-green-500 mx-2">
+          <button onClick={()=>setPage( page - 1 )} disabled={page === 1} className="py-2 px-6 bg-green-400 mx-2 hover:bg-green-600">
             Prev
           </button>
           <button
             onClick={() => setPage(page + 1)}
-            className="p-y-1 px-4 bg-green-500 mx-2"
+            className="py-2 px-6 bg-green-400 mx-2 hover:bg-green-600"
           >
             Next
           </button>

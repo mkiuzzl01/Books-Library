@@ -1,10 +1,8 @@
 import React from "react";
 
-const Book_Card = ({ book }) => {
+const WishListedCard = ({ book }) => {
   const { title, authors, formats, id, bookshelves } = book;
-  // console.log(bookshelves);
-  const authorLength = authors.length;
-  // console.log(authorLength);
+
   return (
     <div className="flex border-2 p-4 w-full h-80 rounded-md">
       {/* the image section of the card */}
@@ -15,7 +13,7 @@ const Book_Card = ({ book }) => {
           loading="lazy"
           className="w-full h-full object-center rounded-md"
         />
-        <div className="absolute bottom-0 left-0 bg-yellow-200 p-2 rounded-bl-md">
+        <div className="absolute bottom-0 left-0 bg-gray-300 p-2 rounded-bl-md">
           {" "}
           <span>ID:</span>
           {id}
@@ -49,15 +47,16 @@ const Book_Card = ({ book }) => {
           <span className="font-bold text-yellow-700">Genre:</span>
           <div className="text-sm">
             {bookshelves.map((genre, idx) => (
-              <span key={idx}>
-                {genre.replace("Browsing:", "")}
-              </span>
+              <span key={idx}>{genre.replace("Browsing:", "")}</span>
             ))}
           </div>
+        </div>
+        <div>
+            <button className=""></button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Book_Card;
+export default WishListedCard;
