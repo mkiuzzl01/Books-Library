@@ -1,66 +1,39 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import React, { useState } from "react";
 import Book_Card from "../Cards/Book_Card";
+import Loading from "../Shared/Loading";
 
 const Books = () => {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("");
-  const [select, setSelect] = useState("");
+  const [search,setSearch] = useState("");
+  const [select,setSelect] = useState("");
+  const { data: Books = [], isLoading } = useQuery({
+    queryKey: ["books"],
+    queryFn: async () => {
+      const { data } = await axios.get("https://gutendex.com/books");
+      return data.results;
+    },
+  });
 
-  const getData = async () => {
-    setLoading(true);
-    const data = await fetch("https://gutendex.com/books");
-    const { results } = await data.json();
-    setBooks(results);
-    return setLoading(false);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  console.log(search);
-  console.log(select);
-
+  console.log(Books);
   return (
     <div>
-      {/* this is filtering section for books */}
-      <div className="my-10 flex justify-around">
+      <div>
         <div>
-          <input
-            onChange={(event) => setSearch(event.target.value)}
-            type="text"
-            className="w-96 h-10 border-2 p-2"
-            placeholder="Please Search Your Books"
-          />
-        </div>
-        <div className="flex items-center justify-center absolute">
-          {/* {
-            loading && <h1>Loading....</h1>
-          } */}
+        <input type="text" className="border-2 w-full p-2" />
         </div>
         <div>
-          <select
-            onChange={(event) => setSelect(event.target.value)}
-            value={select}
-            className="border-2 h-10 p-2"
-          >
-            <option value="" disabled defaultChecked>
-              Default
-            </option>
-            {books?.map((book) =>
-              book?.bookshelves?.map((genre, idx) => (
-                <option key={idx}>{genre.replace("Browsing:", "")}</option>
-              ))
-            )}
+          <select>
+            <option></option>
           </select>
         </div>
       </div>
-
-      {/* this is books section */}
       <div>
-        <div className="grid items-center gap-4 justify-items-center lg:grid-cols-3 md:grid-cols-2 grid-cols-1 m-5">
-          {books.map((book, idx) => (
+        <div className="flex justify-center">
+        {isLoading && <Loading></Loading>}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-2">
+          {Books.map((book, idx) => (
             <Book_Card key={idx} book={book}></Book_Card>
           ))}
         </div>
