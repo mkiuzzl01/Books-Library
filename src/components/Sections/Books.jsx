@@ -41,12 +41,12 @@ const Books = () => {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row justify-around p-5">
+      <div className="flex flex-col md:flex-row justify-around p-5 gap-4">
         {/* for searching */}
         <div>
           <input
             type="text"
-            className="border-2 w-96 p-2 rounded-lg"
+            className="border-2 w-full md:w-96 p-2 rounded-lg"
             placeholder="Search Here"
             onChange={(event) => setSearch(event.target.value)}
           />
@@ -56,12 +56,12 @@ const Books = () => {
           <select
             value={select}
             onChange={(event) => setSelect(event.target.value)}
-            className="w-96 border-2 p-2 rounded-lg"
+            className="md:w-96 w-full border-2 p-2 rounded-lg"
           >
             <option defaultValue="">Default</option>
             {filtering?.map((book) =>
               book?.bookshelves?.map((genre, idx) => (
-                <option key={idx}>{genre.replace("Browsing:", "")}</option>
+                <option className="text-sm" key={idx}>{genre.replace("Browsing:", "")}</option>
               ))
             )}
           </select>

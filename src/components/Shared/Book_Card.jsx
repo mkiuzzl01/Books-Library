@@ -7,7 +7,7 @@ const Book_Card = ({ book }) => {
 
   // console.log(book);
   return (
-    <div className="flex border-2 p-4 w-full h-80 rounded-md">
+    <div className="flex border-2 shadow-[#B17457] hover:shadow-lg duration-300 hover:border-[#B17457] p-4 w-full h-80 rounded-md">
       {/* the image section of the card */}
       <div className="w-2/5 h-full flex items-center justify-center relative">
         <img

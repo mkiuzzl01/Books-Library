@@ -5,13 +5,15 @@ import Footer from "../components/Footer/Footer";
 
 const Root = () => {
   return (
-    <div>
-      <main className="">
+    <div className="">
+      <div>
         <nav className="sticky top-0 z-10">
           <Navbar></Navbar>
         </nav>
+        <main className="min-h-[calc(100vh-180px)]">
         <Outlet></Outlet>
-      </main>
+        </main>
+      </div>
       <footer>
         <Footer></Footer>
       </footer>

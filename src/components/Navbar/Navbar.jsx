@@ -5,7 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  
+
   useEffect(() => {
     //handle the small menubar for largest device;
     const handleResize = () => {
@@ -19,16 +19,27 @@ const Navbar = () => {
   const navLink = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({isActive}) => (isActive ? "text-[#B17457]" : "")}
+        >
+          Home
+        </NavLink>
       </li>
+
       <li>
-        <NavLink to="/Wishlist">Wishlist</NavLink>
+        <NavLink
+          to="/Wishlist"
+          className={({isActive}) => (isActive ? "text-[#B17457]" : "")}
+        >
+          Wishlist
+        </NavLink>
       </li>
     </>
   );
   return (
     <div>
-      <div className="z-10 flex relative items-center justify-between p-3 lg:p-5 bg-[#B7B7B7] text-black">
+      <div className="flex relative items-center justify-between p-3  bg-[#D8D2C2] text-black">
         {/* Logo Section */}
         <div className="lg:w-1/4 flex gap-2 items-center">
           <div onClick={() => setOpen(!isOpen)} className="block lg:hidden">
@@ -41,8 +52,9 @@ const Navbar = () => {
         <div className="lg:w-1/2 hidden lg:block">
           <ul className="justify-center list-none flex space-x-2">{navLink}</ul>
         </div>
-        <div className="lg:w-1/4 flex justify-end">
-          <p>demon.location</p>
+        <div className="lg:w-1/4 flex flex-col items-end">
+          <p>mkiuzzal00info@gmail.com</p>
+          <p>+8801609105796</p>
         </div>
       </div>
 
@@ -54,7 +66,7 @@ const Navbar = () => {
       >
         <ul
           onClick={() => setOpen(!isOpen)}
-          className="flex flex-col gap-2  ps-5 bg-[#B7B7B7] h-[calc(100vh-48px)] rounded-e-sm "
+          className="flex flex-col gap-2  ps-5 bg-[#D8D2C2] h-[calc(100vh-48px)] rounded-e-sm "
         >
           {navLink}
         </ul>
