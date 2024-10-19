@@ -84,7 +84,7 @@ const Books = () => {
       </div>
       {/* for pagination */}
       <div>
-        <div className="flex justify-center my-2">
+        <div className="flex justify-center my-10">
           <button
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
