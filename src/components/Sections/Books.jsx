@@ -8,6 +8,7 @@ import Empty from "../Shared/Empty";
 const Books = () => {
   const [search, setSearch] = useState("");
   const [select, setSelect] = useState("");
+  const [page, setPage] = useState(1);
 
   const [forFilter, items] = useQueries({
     queries: [
@@ -19,10 +20,10 @@ const Books = () => {
         },
       },
       {
-        queryKey: ["books", search, select],
+        queryKey: ["books", search, select, page],
         queryFn: async () => {
           const { data } = await axios.get(
-            `https://gutendex.com/books?search=${search}&topic=${select}`
+            `https://gutendex.com/books?page=${page}&search=${search}&topic=${select}`
           );
           return data.results;
         },
@@ -30,6 +31,7 @@ const Books = () => {
     ],
   });
 
+  console.log(page);
   //for filtering
   const filtering = forFilter.data || [];
   const books = items.data || [];
@@ -71,6 +73,19 @@ const Books = () => {
           {books.map((book, idx) => (
             <Book_Card key={idx} book={book}></Book_Card>
           ))}
+        </div>
+      </div>
+      <div>
+        <div className="flex justify-center my-2">
+          <button onClick={()=>setPage( page - 1 )} disabled={page === 1} className="p-y-1 px-4 bg-green-500 mx-2">
+            Prev
+          </button>
+          <button
+            onClick={() => setPage(page + 1)}
+            className="p-y-1 px-4 bg-green-500 mx-2"
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>
