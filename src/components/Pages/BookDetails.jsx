@@ -27,17 +27,17 @@ const BookDetails = () => {
   if (!book) return <Empty></Empty>;
 
   return (
-    <div className="h-screen flex justify-center items-center">
-      <div className="flex flex-col md:flex-row justify-center items-center border-2 p-5 rounded-lg">
+    <div className="py-1 flex justify-center items-center">
+      <div className="md:w-4/5 flex flex-col md:flex-row justify-evenly items-center border-2 p-5 rounded-lg">
         {/* {loading && <Loading></Loading>} */}
-        <div className="1/2">
+        <div className="w-72">
           <img
             src={book.formats?.["image/jpeg"]}
             alt={book.title}
             className="w-full h-full object-center"
           />
         </div>
-        <div className="flex-1 ms-4">
+        <div className="mt-3 md:mt-0">
           <h1 className="lg:text-3xl md:text-2xl text-xl font-bold">
             {book?.title}
           </h1>
@@ -50,15 +50,18 @@ const BookDetails = () => {
             </ul>
           </div>
           <div>
-          <span className="text-xl font-normal me-4">Author</span>
-           <ul className="list-disc list-inside">
-           {book.authors.map((author) => (
-              <li>{author.name}</li>
-            ))}
-           </ul>
+            <span className="text-xl font-normal me-4">Author</span>
+            <ul className="list-disc list-inside">
+              {book.authors.map((author) => (
+                <li>{author.name}</li>
+              ))}
+            </ul>
           </div>
           <div className="my-1">
-            <p><span className="text-xl font-normal">Total Download :</span> {book.download_count}</p>
+            <p>
+              <span className="text-xl font-normal">Total Download :</span>{" "}
+              {book.download_count}
+            </p>
           </div>
         </div>
       </div>

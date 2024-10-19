@@ -9,7 +9,7 @@ const WishListedCard = ({ book,handleRemove }) => {
   return (
     <div className="flex border-2 p-4 w-full h-80 rounded-md">
       {/* the image section of the card */}
-      <div className="w-2/5 h-full flex items-center justify-center relative">
+      <div className=" h-full flex items-center justify-center relative">
         <img
           src={formats["image/jpeg"]}
           alt={title}
@@ -24,9 +24,9 @@ const WishListedCard = ({ book,handleRemove }) => {
       </div>
 
       {/* the content section of the card */}
-      <div className="w-3/5 px-4 flex flex-col justify-around">
+      <div className="px-4 flex flex-col justify-around">
         <div className="text-sm">
-          <Link to={`/Book_Details/${id}`}><h1 className="text-lg font-semibold">{title}</h1></Link>
+          <Link to={`/Book_Details/${id}`}><h1 title="View Details" className="md:text-lg font-semibold hover:text-blue-600">{title}</h1></Link>
           {authors.map((auth, idx) => (
             <div key={idx} className="">
               <span>

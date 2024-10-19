@@ -10,13 +10,11 @@ const Root = () => {
         <nav className="sticky top-0 z-10">
           <Navbar></Navbar>
         </nav>
-        <main className="min-h-[calc(100vh-180px)]">
+        <main className="min-h-[calc(100vh-250px)]">
         <Outlet></Outlet>
         </main>
       </div>
-      <footer>
         <Footer></Footer>
-      </footer>
     </div>
   );
 };

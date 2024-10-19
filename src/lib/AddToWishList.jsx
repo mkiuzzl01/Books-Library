@@ -1,5 +1,5 @@
-import React from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
+import Toast from "../components/Shared/Toast";
 
 const AddToWishList = ({ book }) => {
   const handleAddToWishlist = (book) => {
@@ -7,10 +7,14 @@ const AddToWishList = ({ book }) => {
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     const check = wishlist.find((wishlist) => wishlist.id == book.id);
     if (check) {
-      return alert("Already Have");
+      return Toast(
+        "warning",
+        "Already Exist",
+        "The Card Already Exist Wishlist"
+      );
     } else {
       wishlist.push(info);
-      alert("Added the card")
+      Toast("success", "Added", "The Card Added Wishlist");
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
     }
   };

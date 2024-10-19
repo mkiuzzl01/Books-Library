@@ -21,7 +21,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={({isActive}) => (isActive ? "text-[#B17457]" : "")}
+          className={({ isActive }) => (isActive ? "text-red-700" : "")}
         >
           Home
         </NavLink>
@@ -30,7 +30,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/Wishlist"
-          className={({isActive}) => (isActive ? "text-[#B17457]" : "")}
+          className={({ isActive }) => (isActive ? "text-red-700" : "")}
         >
           Wishlist
         </NavLink>
@@ -39,7 +39,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="flex relative items-center justify-between p-3  bg-[#D8D2C2] text-black">
+      <div className="flex  items-center justify-between p-3  bg-[#D8D2C2] text-black">
         {/* Logo Section */}
         <div className="lg:w-1/4 flex gap-2 items-center">
           <div onClick={() => setOpen(!isOpen)} className="block lg:hidden">
@@ -62,11 +62,11 @@ const Navbar = () => {
       <div
         className={`${
           isOpen ? "translate-x-0 " : "-translate-x-full"
-        } absolute z-20 w-3/4 md:w-1/2 transition-transform duration-300 ease-in-out`}
+        } absolute z-20 w-3/4 md:w-1/2 transition-transform duration-300 ease-in-out bg-[#D8D2C2] h-[calc(100vh-48px)] rounded-e-sm lg:hidden`}
       >
         <ul
           onClick={() => setOpen(!isOpen)}
-          className="flex flex-col gap-2  ps-5 bg-[#D8D2C2] h-[calc(100vh-48px)] rounded-e-sm "
+          className="flex flex-col gap-2  ps-5   "
         >
           {navLink}
         </ul>

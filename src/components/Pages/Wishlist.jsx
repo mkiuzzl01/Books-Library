@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Empty from "../Shared/Empty";
 import WishListedCard from "../Shared/WishListed_Card";
+import Toast from "../Shared/Toast";
 
 const Wishlist = () => {
   const books = localStorage.getItem("wishlist");
@@ -10,11 +11,13 @@ const Wishlist = () => {
     const items = wishListed.filter((book) => book.id !== id);
 
     localStorage.setItem("wishlist", JSON.stringify(items));
+    Toast("warning",'Removed',"the card removed from wishlist");
     setWishListed(items);
   };
 
+
   return (
-    <div className="">
+    <div className="p-2">
       {wishListed.length > 0 ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {wishListed.map((book, idx) => (
