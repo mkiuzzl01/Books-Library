@@ -41,12 +41,13 @@ const Books = () => {
 
   return (
     <div>
-      <div className="flex justify-around py-4">
+      <div className="flex flex-col md:flex-row justify-around p-5">
         {/* for searching */}
         <div>
           <input
             type="text"
-            className="border-2 w-full p-2"
+            className="border-2 w-96 p-2 rounded-lg"
+            placeholder="Search Here"
             onChange={(event) => setSearch(event.target.value)}
           />
         </div>
@@ -55,7 +56,7 @@ const Books = () => {
           <select
             value={select}
             onChange={(event) => setSelect(event.target.value)}
-            className="w-full p-2"
+            className="w-96 border-2 p-2 rounded-lg"
           >
             <option defaultValue="">Default</option>
             {filtering?.map((book) =>
