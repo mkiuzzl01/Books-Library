@@ -12,8 +12,11 @@ Users can browse a comprehensive collection of books, easily finding their favor
 
 ## Uses Technology:
 => HTML,CSS,Tailwind CSS
+
 => JavaScript
+
 => ReactJs
+
 => gutendex API
 
 ## If you run the project on your local machine follow the steps:
