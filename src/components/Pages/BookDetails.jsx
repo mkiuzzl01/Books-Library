@@ -27,7 +27,7 @@ const BookDetails = () => {
   if (!book) return <Empty></Empty>;
 
   return (
-    <div className="md:pt-10 flex justify-center items-center">
+    <div className="md:py-5 flex justify-center items-center">
       <div className=" w-full lg:w-4/6 flex flex-col md:flex-row justify-evenly items-center border-2 p-5 rounded-lg">
         {/* {loading && <Loading></Loading>} */}
         <div className="md:w-72">

@@ -12,6 +12,8 @@ const Books = () => {
   const [select, setSelect] = useState("");
   const [page, setPage] = useState(1);
 
+  console.log(select);
+
   const [items,forFilter] = useQueries({
     queries: [
       {
@@ -58,7 +60,7 @@ const Books = () => {
             onChange={(event) => setSelect(event.target.value)}
             className="md:w-96 w-full border-2 p-2 rounded-lg"
           >
-            <option defaultValue="">Default</option>
+            <option selected value="">Default</option>
             {filtering?.map((book) =>
               book?.bookshelves?.map((genre, idx) => (
                 <option className="text-sm" key={idx}>{genre.replace("Browsing:", "")}</option>
