@@ -53,7 +53,7 @@ const Navbar = () => {
         <div className="lg:w-1/2 hidden lg:block">
           <ul className="justify-center list-none flex space-x-2">{navLink}</ul>
         </div>
-        <div className="lg:w-1/4 flex flex-col items-end">
+        <div className="lg:w-1/4 text-sm md:text-lg flex flex-col items-end">
           <p>mkiuzzal007info@gmail.com</p>
           <p>+8801609105796</p>
         </div>
