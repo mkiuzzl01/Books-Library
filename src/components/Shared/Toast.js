@@ -2,6 +2,7 @@ import { Store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 
 const Toast = (Type, Title, Message) => {
+  // this function for popup
   Store.addNotification({
     title: Title,
     message: Message,

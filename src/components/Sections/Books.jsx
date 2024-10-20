@@ -12,10 +12,12 @@ const Books = () => {
   const [select, setSelect] = useState("");
   const [page, setPage] = useState(1);
 
-  console.log(select);
+  // console.log(select);
 
+  // get books data from api use by the useQueries
   const [items,forFilter] = useQueries({
     queries: [
+      //this is for cards
       {
         queryKey: ["books", search, select, page],
         queryFn: async () => {
@@ -26,6 +28,7 @@ const Books = () => {
         },
         enabled: !!search || !!select || !!page,
       },
+      // this is for filtering
       {
         queryKey: ["forFilter"],
         queryFn: async () => {
@@ -36,7 +39,7 @@ const Books = () => {
     ],
   });
 
-  // console.log(page);
+ 
   //for filtering
   const filtering = forFilter.data || [];
   const books = items.data || [];

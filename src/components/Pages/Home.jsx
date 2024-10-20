@@ -19,7 +19,7 @@ const Home = () => {
           </>
         }
       ></Section_title>
-      
+      {/* the books section */}
      <Books></Books>
     </div>
   );

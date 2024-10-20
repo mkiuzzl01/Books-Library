@@ -22,14 +22,13 @@ const BookDetails = () => {
     getData();
   }, [id]);
 
-  console.log(book);
+  // console.log(book);
   if (loading) return <Loading></Loading>;
   if (!book) return <Empty></Empty>;
 
   return (
     <div className="md:py-5 flex justify-center items-center">
-      <div className=" w-full lg:w-4/6 flex flex-col md:flex-row justify-evenly items-center border-2 p-5 rounded-lg">
-        {/* {loading && <Loading></Loading>} */}
+      <div className=" w-full lg:w-4/6 flex flex-col md:flex-row justify-evenly items-center lg:border-2  p-5 rounded-lg">
         <div className="md:w-72">
           <img
             src={book.formats?.["image/jpeg"]}
@@ -42,6 +41,7 @@ const BookDetails = () => {
             {book?.title}
           </h1>
           <div className="my-2 flex">
+            {/* for each subject */}
             <span className="text-xl font-normal me-4">Subjects</span>
             <ul className="list-decimal list-inside">
               {book.subjects.map((subject) => (
@@ -50,6 +50,7 @@ const BookDetails = () => {
             </ul>
           </div>
           <div>
+            {/* for is author */}
             <span className="text-xl font-normal me-4">Author</span>
             <ul className="list-disc list-inside">
               {book.authors.map((author) => (

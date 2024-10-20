@@ -5,8 +5,10 @@ import Toast from "../Shared/Toast";
 
 const Wishlist = () => {
   const books = localStorage.getItem("wishlist");
+  // get books from  localStorage 
   const [wishListed, setWishListed] = useState(JSON.parse(books) || []);
 
+  //for remove the book card in from wishlist
   const handleRemove = (id) => {
     const items = wishListed.filter((book) => book.id !== id);
 
@@ -20,6 +22,7 @@ const Wishlist = () => {
     <div className="p-5">
       {wishListed.length > 0 ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {/* map for all wishListed books */}
           {wishListed.map((book, idx) => (
             <WishListedCard
               book={book}

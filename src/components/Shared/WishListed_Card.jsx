@@ -47,10 +47,11 @@ const WishListedCard = ({ book,handleRemove }) => {
           ))}
         </div>
         <div>
+          {/* this is for book tropic */}
           <span className="font-bold text-yellow-700">Genre:</span>
           <div className="text-sm">
             {bookshelves.map((genre, idx) => (
-              <span key={idx}>{genre.replace("Browsing:", "")}</span>
+              <span key={idx}>{genre.replace("Browsing:", " || ")}</span>
             ))}
           </div>
         </div>

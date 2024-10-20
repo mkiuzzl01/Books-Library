@@ -16,6 +16,7 @@ const Navbar = () => {
     window.addEventListener("resize", handleResize);
   }, []);
 
+  //For Navigation Path
   const navLink = (
     <>
       <li>
@@ -53,7 +54,7 @@ const Navbar = () => {
           <ul className="justify-center list-none flex space-x-2">{navLink}</ul>
         </div>
         <div className="lg:w-1/4 flex flex-col items-end">
-          <p>mkiuzzal00info@gmail.com</p>
+          <p>mkiuzzal007info@gmail.com</p>
           <p>+8801609105796</p>
         </div>
       </div>

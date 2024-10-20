@@ -8,13 +8,16 @@ const Root = () => {
     <div className="">
       <div>
         <nav className="sticky top-0 z-10">
+          {/* this is for navbar */}
           <Navbar></Navbar>
         </nav>
         <main className="min-h-[calc(100vh-250px)]">
-        <Outlet></Outlet>
+          {/* this is for main contain */}
+          <Outlet></Outlet>
         </main>
       </div>
-        <Footer></Footer>
+      {/* this is for footer */}
+      <Footer></Footer>
     </div>
   );
 };
