@@ -17,7 +17,7 @@ const Wishlist = () => {
 
 
   return (
-    <div className="p-2">
+    <div className="p-5">
       {wishListed.length > 0 ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {wishListed.map((book, idx) => (
@@ -29,7 +29,9 @@ const Wishlist = () => {
           ))}
         </div>
       ) : (
-        <Empty></Empty>
+        <div className="pt-24">
+          <Empty></Empty>
+        </div>
       )}
     </div>
   );

@@ -7,14 +7,14 @@ const WishListedCard = ({ book,handleRemove }) => {
   const { title, authors, formats, id, bookshelves } = book;
 
   return (
-    <div className="flex border-2 p-4 w-full h-80 rounded-md">
+    <div className="flex flex-col md:flex-row border-2 p-4 h-auto  rounded-md">
       {/* the image section of the card */}
-      <div className=" h-full flex items-center justify-center relative">
+      <div className="flex items-center justify-center relative mb-4 md:mb-0 md:w-1/3">
         <img
           src={formats["image/jpeg"]}
           alt={title}
           loading="lazy"
-          className="w-full h-full object-center rounded-md"
+          className="object-cover  md:w-full rounded-md"
         />
         <div className="absolute bottom-0 left-0 bg-gray-300 p-2 rounded-bl-md">
           {" "}
@@ -24,9 +24,9 @@ const WishListedCard = ({ book,handleRemove }) => {
       </div>
 
       {/* the content section of the card */}
-      <div className="px-4 flex flex-col justify-around">
+      <div className="px-4 flex flex-col justify-between md:w-2/3">
         <div className="text-sm">
-          <Link to={`/Book_Details/${id}`}><h1 title="View Details" className="md:text-lg font-semibold hover:text-blue-600">{title}</h1></Link>
+          <Link to={`/Book_Details/${id}`}><h1 title="View Details" className="py-2 text-lg font-semibold hover:text-blue-600">{title}</h1></Link>
           {authors.map((auth, idx) => (
             <div key={idx} className="">
               <span>
@@ -54,7 +54,7 @@ const WishListedCard = ({ book,handleRemove }) => {
             ))}
           </div>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-end pt-5 md:mt-0">
           <button title="Remove" onClick={() => handleRemove(id)} className="text-2xl px-2 hover:text-yellow-500">
             <BiSolidLike></BiSolidLike>
           </button>
