@@ -1,8 +1,23 @@
-# React + Vite
+# Project Name: Books Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview :
+Users can browse a comprehensive collection of books, easily finding their favorites using the integrated search and genre filtering options. The site allows users to save books to their wishlist for future reference, ensuring a personalized experience. Additionally, users can view detailed information about each book, including its title, author, genre, and cover image, all in a clean and intuitive interface.
 
-Currently, two official plugins are available:
+## Features & Functionality:
+1. Book Listing & Browsing.
+2. Real-Time Search.
+3. Filtering.
+4. Save to Wishlist.
+5. Pagination.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Uses Technology:
+=> HTML,CSS,Tailwind CSS
+=> JavaScript
+=> ReactJs
+=> gutendex API
+
+## If you run the project on your local machine follow the steps:
+* clone the project from this repository.
+* Open the project on your IDE.
+* use the command on your terminal " npm install ".
+* then use " npm run dev ".
